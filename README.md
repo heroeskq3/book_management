@@ -59,7 +59,7 @@ cd book_management
 **2. Create a new application for the API:**
 python manage.py startapp books
 
-**3. Run server **
+**3. Run server**
 python manage.py runserver
 
 **4. Create tokens for users (optional):**
@@ -81,7 +81,7 @@ python manage.py test
 
 ## Documentation
 
-**a. Swager documentation **
+**a. Swager documentation**
 
 Access Swagger documentation at http://localhost:8000/swagger/
 
