@@ -23,16 +23,16 @@ A web application built with Django to manage books, including CRUD operations a
 
 ## Installation
 
-*1. Verify Python and Pip versions:*
+**1. Verify Python and Pip versions:**
 python --version
 pip --version
 
-*2. Create and activate a virtual environment:*
+**2. Create and activate a virtual environment:**
 
 python -m venv test_backend
 source test_backend/bin/activate
 
-*3. Install Django and other dependencies:*
+**3. Install Django and other dependencies:**
 
 pip install django
 pip install --upgrade pip  # Optional
@@ -51,18 +51,18 @@ python -m django --version
 
 ## Usage
 
-*1. Create a new Django project:*
+**1. Create a new Django project:**
 
 django-admin startproject book_management
 cd book_management
 
-*2. Create a new application for the API:*
+**2. Create a new application for the API:**
 python manage.py startapp books
 
-*3. Run server *
+**3. Run server **
 python manage.py runserver
 
-*4. Create tokens for users (optional):*
+**4. Create tokens for users (optional):**
 
 use UI for create users http://127.0.0.1:8000/admin/ or
 
@@ -81,11 +81,11 @@ python manage.py test
 
 ## Documentation
 
-*a. Swager documentation *
+**a. Swager documentation **
 
 Access Swagger documentation at http://localhost:8000/swagger/
 
-*b. Define the Endpoints*
+**b. Define the Endpoints**
 
 For a book management system, you can define the following endpoints:
 
@@ -95,11 +95,11 @@ For a book management system, you can define the following endpoints:
 - `PUT /api/books/{id}/`: Update a specific book.
 - `DELETE /api/books/{id}/`: Delete a specific book.
 
-*c. Authentication and Authorization*
+**c. Authentication and Authorization**
 
 You can use Django REST Framework (DRF) to handle authentication and authorization. DRF provides options for basic-based authentication, session-based authentication.
 
-*d. Installation requirements*
+**d. Installation requirements**
 Please use requirements.txt for check installation.
 
 ## License
