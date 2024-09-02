@@ -1,77 +1,111 @@
-# Project Name
-
-A web application built with Django that provides an interface for [brief description of purpose]. Includes Swagger for API documentation.
+# Book Management API
 
 ## Table of Contents
 - [Description](#description)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
+- [Configuration](#configuration)
+- [Testing](#testing)
+- [Documentation](#documentation)
 - [License](#license)
+- [Contact](#contact)
+
+## Description
+A web application built with Django to manage books, including CRUD operations and API documentation with Swagger. This project provides a Django-based API for managing books with endpoints for CRUD operations. It uses Django REST Framework (DRF) for API development and includes Swagger for API documentation.
 
 ## Features
 - User management and authentication
-- Intuitive user interface
+- CRUD operations for books
 - API documentation with Swagger
+- Token-based authentication
+- Pagination and rate limiting
 
 ## Installation
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/username/repository-name.git
-   ```
+*1. Verify Python and Pip versions:*
+python --version
+pip --version
 
-2. Navigate to the project directory:
-   ```bash
-   cd repository-name
-   ```
+*2. Create and activate a virtual environment:*
 
-3. Create a virtual environment (optional but recommended):
-   ```bash
-   python -m venv env
-   source env/bin/activate  # On Windows use `env\Scripts\activate`
-   ```
+python -m venv test_backend
+source test_backend/bin/activate
 
-4. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+*3. Install Django and other dependencies:*
 
-5. Configure environment variables. Copy the `.env.example` file to `.env` and adjust the values as needed.
+pip install django
+pip install --upgrade pip  # Optional
+pip install django --break-system-packages
 
-6. Apply migrations:
-   ```bash
-   python manage.py migrate
-   ```
+pip install djangorestframework
+pip install djangorestframework-jwt
+pip install djangorestframework-simplejwt
+pip install drf-yasg
+pip install setuptools
 
-7. Run the development server:
-   ```bash
-   python manage.py runserver
-   ```
+4. Verify the installation of Django:
 
-8. Open your browser and visit `http://localhost:8000` to view the application.
+django-admin --version
+python -m django --version
 
 ## Usage
 
-To access the API documentation, open `http://localhost:8000/swagger/` in your browser.
+*1. Create a new Django project:*
 
-You can create a new user, log in, and explore the different available features.
+django-admin startproject book_management
+cd book_management
 
-## Contributing
+*2. Create a new application for the API:*
+python manage.py startapp books
 
-Contributions are welcome. Please follow these steps to contribute:
-1. Fork the repository.
-2. Create a new branch for your feature (`git checkout -b feature/new-feature`).
-3. Make your changes and commit (`git commit -am 'Add new feature'`).
-4. Push your branch and create a pull request.
+*3. Run server *
+python manage.py runserver
 
-For more details, see the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+*4. Create tokens for users (optional):*
+
+use UI for create users http://127.0.0.1:8000/admin/ or
+
+python manage.py shell
+
+from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token
+
+user = User.objects.get(username='admin_test')  # Replace with actual username
+token, created = Token.objects.get_or_create(user=user)
+print(token.key)
+
+## Testing
+Run unit testing using Django's test framework:
+python manage.py test
+
+## Documentation
+
+*a. Swager documentation *
+
+Access Swagger documentation at http://localhost:8000/swagger/
+
+*b. Define the Endpoints*
+
+For a book management system, you can define the following endpoints:
+
+- `GET /api/books/`: Retrieve a list of all books (with pagination).
+- `POST /api/books/`: Create a new book.
+- `GET /api/books/{id}/`: Retrieve the details of a specific book.
+- `PUT /api/books/{id}/`: Update a specific book.
+- `DELETE /api/books/{id}/`: Delete a specific book.
+
+*c. Authentication and Authorization*
+
+You can use Django REST Framework (DRF) to handle authentication and authorization. DRF provides options for basic-based authentication, session-based authentication.
+
+*d. Installation requirements*
+Please use requirements.txt for check installation.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Contact
 
-If you have any questions, you can reach me at [your-email@example.com](mailto:your-email@example.com).
+If you have any questions, you can reach me at [heroeskq3@gmail.com](mailto:heroeskq3@gmail.com).
